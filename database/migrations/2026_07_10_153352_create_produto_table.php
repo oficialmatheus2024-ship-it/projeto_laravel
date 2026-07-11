@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('marca');
             $table->string('descricao');
             $table->string('preco',10,2);
-            $table->string('imagem');
-            
+            $table->string('imagem');     
             $table->timestamps();
         });
     }
