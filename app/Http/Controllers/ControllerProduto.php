@@ -48,6 +48,42 @@ class ControllerProduto extends Controller
 }
 
 
+ public function dashboard() {
+
+    $produto = Produto::all();
+    
+        return view('adm',  compact('produto'));
+
+    }
+
+
+ public function destroy($id) {
+
+        Produto::findOrFail($id)->delete();
+
+          return redirect('/adm')->with('msg', 'Produto excluído com sucesso!');
+
+    }
+
+    public function edit($id) {
+
+        $produto = Produto::findOrFail($id);
+
+        return view('editar', compact('produto'));
+
+    }
+
+       public function update(Request $request, $id) {
+
+        $produto = Produto::findOrFail($id);
+
+        $produto->update($request->all());
+
+        return redirect('/adm');
+        
+        }
+   
+
 
 
 }
